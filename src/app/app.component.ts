@@ -1,10 +1,17 @@
-import {Component} from '@angular/core';
+import { FormTemplateComponent } from './formTemplates/formTemplate.component';
+import { Component } from '@angular/core';
+
 
 @Component({
-  selector: 'app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'fb-root',
+  template: 
+  `
+  <div><h1>{{pageTitle}}</h1>
+  <fb-formTemplates></fb-formTemplates>
+  </div>
+  `  
 })
-export class AppComponent {
-  title: string = 'Skygate Form Builder';
+
+export class AppComponent{
+    pageTitle: string = 'Form Builder';
 }
