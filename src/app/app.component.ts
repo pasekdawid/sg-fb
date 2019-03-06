@@ -4,14 +4,11 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'fb-root',
-  template: 
-  `
-  <div><h1>{{pageTitle}}</h1>
-  <fb-formTemplates></fb-formTemplates>
-  </div>
-  `  
+  templateUrl:'./app.component.html',
+  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent{
     pageTitle: string = 'Form Builder';
+    addString: string = 'Add Input';
 }

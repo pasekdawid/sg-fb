@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'fb-formTemplates',
-    templateUrl:'./formTemplate.component.html'
+    templateUrl: './formTemplate.component.html',
+    styleUrls: ['./formTemplate.component.css']
 })
 
 export class FormTemplateComponent{
