@@ -1,5 +1,5 @@
 import { FormData } from './FormData';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,17 +12,22 @@ export class RootFormComponent implements OnInit{
     rootForm: FormGroup;
     data = new FormData();
 
-    constructor() {
-
+    constructor(private fb: FormBuilder) {
+        this.rootForm = this.fb.group({
+            condition: '',
+            value: '',
+            question: '',
+            type: ''
+        });
     }
 
     ngOnInit(): void {
-        this.rootForm = new FormGroup({
-            condition: new FormControl(),
-            question: new FormControl(),
-            type: new FormControl(),
-            value: new FormControl()
-        });
+        // this.rootForm = new FormGroup({
+        //     condition: new FormControl(),
+        //     question: new FormControl(),
+        //     type: new FormControl(),
+        //     value: new FormControl()
+        // });
     }
 
     save(){
