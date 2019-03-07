@@ -1,19 +1,19 @@
-import { ConditionComponent } from './formTemplates/condition.component';
-import { QuestionComponent } from './formTemplates/question.component';
-import { FormTemplateComponent } from './formTemplates/formTemplate.component';
+import { RootFormComponent } from './root-form/root-form.component';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
     declarations:[
         AppComponent,
-        FormTemplateComponent,
-        QuestionComponent,
-        ConditionComponent
+        RootFormComponent,
     ],
     imports:[
-        BrowserModule
+        BrowserModule,
+        FormsModule, 
+        ReactiveFormsModule
     ],
     bootstrap:[
         AppComponent

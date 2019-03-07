@@ -1,5 +1,3 @@
-import { FormGroup } from '@angular/forms';
-import { FormTemplateComponent } from './formTemplates/formTemplate.component';
 import { Component } from '@angular/core';
 
 
@@ -10,7 +8,5 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent{
-    pageTitle: string = 'Form Builder';
-    addString: string = 'Add Input';
-    formContainer: FormGroup[];
+  title = 'Form Builder';
 }
