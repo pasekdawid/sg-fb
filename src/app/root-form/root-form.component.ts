@@ -26,20 +26,31 @@ export class RootFormComponent implements OnInit{
             formContainer: this.fb.array([this.buildContainer()])
         })      
 
-        // LOAD TODO
+        this.load();
 
         this.rootForm.valueChanges.subscribe(value=>
-            console.log(JSON.stringify(value)));
-
-        // SAVE TODO
+            console.log(JSON.stringify(value), this.save()));
     }
 
     save(){
         console.log('saving..');
+        //TODO
     }
 
-    addSub(){
-        console.log('addSub..');
+    load(){
+        console.log('loading..');
+        //TODO
+    }
+
+    addSub(i: number){ //                           ;(
+        // this.formContainer.setControl(3, 
+        //         this.rootForm = this.fb.group({
+        //         formContainer: this.fb.array([this.buildContainer()])
+        //     })      
+        // );
+        this.rootForm.setControl('container', this.fb.array([this.buildContainer()])); 
+    
+        console.log('addSub..' + i); 
     }
 
     delete(i: number): void{
@@ -61,12 +72,12 @@ export class RootFormComponent implements OnInit{
                 disabled: true
             },
             question: '',
-            type: ''
+            type: '',
+            childForm: this.fb.array([])
         })
     }
 
     addForm(): void{
         this.formContainer.push(this.buildContainer());
     }
-
 }
