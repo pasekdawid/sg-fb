@@ -1,0 +1,69 @@
+<div class="card-body">
+
+    <form novalidate
+          [formGroup] = "rootForm">
+
+          <!-- <div *ngIf=""> TODO CONDITION + VALUE -->
+
+
+        <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label"
+                   for="questionId">Question</label>
+            <div class="col-md-8">
+                <input class="form-control"
+                       id="questionId"
+                       type="text"
+                       placeholder="Your question"
+                       formControlName="question" />
+            </div>
+        </div>
+
+        <div class="form group row mb-2">
+            <label class="col-md-2 col-form-label"
+                   for="typeId">Type</label>
+            <div class="col-md-8">
+                <select class="form-control"
+                       id="typeId"
+                       formControlName="type">
+                    <option value=""
+                            disabled
+                            selected
+                            hidden>Select type</option>
+                    <option value="text">Text</option>
+                    <option value="number">Number</option>
+                    <option value="bool">Yes/No</option>      
+                </select>
+            </div>
+        </div> 
+
+        <div class="form-group row mb-2">
+            <div class="offset-md-2 col-md-4">
+                <button class="btn btn-outline-secondary"
+                        (click)="addSub()">
+                Add Sub-Input
+                </button>
+                <button class="btn btn-outline-secondary"
+                        type="button"
+                        (click)="delete()">
+                    
+                Delete
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group row mb-2">
+                <div class="offset-md-2 col-md-4">
+                    <button class="btn btn-primary mr-3"
+                            style="width:80px"
+                            (click)="add()">
+                    Add Input
+                    </button>
+                </div>
+            </div>
+    </form>
+</div>
+
+<br>Dirty: {{ rootForm.dirty }}
+<br>Touched: {{ rootForm.touched }}
+<br>Value: {{ rootForm.value | json }}
+<br>&nbsp;
