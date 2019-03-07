@@ -1,5 +1,5 @@
 import { FormData } from './FormData';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,26 +12,20 @@ export class RootFormComponent implements OnInit{
     rootForm: FormGroup;
     data = new FormData();
 
-    constructor(private fb: FormBuilder) {
-        this.rootForm = this.fb.group({
-            condition: {
-                value: '',
-                disabled: true
-            },
-            value: {
-                value: '',
-                disabled: true
-            },
-            question: '',
-            type: ''
-        });
+    get formContainer(): FormArray{
+        return <FormArray>this.rootForm.get('formContainer');
     }
 
-    
+    constructor(private fb: FormBuilder) {
+      
+    }
 
     ngOnInit(): void {
         console.log('start..');
-        
+        this.rootForm = this.fb.group({
+            formContainer: this.fb.array([this.buildContainer()])
+        })      
+
         // LOAD TODO
 
         this.rootForm.valueChanges.subscribe(value=>
@@ -44,15 +38,35 @@ export class RootFormComponent implements OnInit{
         console.log('saving..');
     }
 
-    add(){
-        console.log('add..');
-    }
-
     addSub(){
         console.log('addSub..');
     }
 
-    delete(){
+    delete(i: number): void{
         console.log('delete..');
+        if (confirm("Are you sure you want to delete " + i + "?"))
+        {
+            this.formContainer.removeAt(i);
+        }
     }
+
+    buildContainer(): FormGroup{
+        return this.fb.group({
+            condition: {
+                value: '',
+                disabled: true
+            },
+            value: {
+                value: '',
+                disabled: true
+            },
+            question: '',
+            type: ''
+        })
+    }
+
+    addForm(): void{
+        this.formContainer.push(this.buildContainer());
+    }
+
 }

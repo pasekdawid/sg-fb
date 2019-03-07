@@ -5,57 +5,61 @@
 
           <!-- <div *ngIf=""> TODO CONDITION + VALUE -->
 
+        <div formArrayName="formContainer">             
+            <div *ngFor="let f of rootForm.controls.formContainer.controls; let i=index;" [formGroupName]="i">
+                <div class="form-group row mb-2">
+                    <label class="col-md-2 col-form-label"
+                           attr.for="{{'questionId' + i}}">Question</label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                            id="{{'questionId' + i}}"
+                            type="text"
+                            placeholder="Your question"
+                            formControlName="question" />
+                    </div>
+                </div>
 
-        <div class="form-group row mb-2">
-            <label class="col-md-2 col-form-label"
-                   for="questionId">Question</label>
-            <div class="col-md-8">
-                <input class="form-control"
-                       id="questionId"
-                       type="text"
-                       placeholder="Your question"
-                       formControlName="question" />
+                <div class="form-group row mb-2">
+                    <label class="col-md-2 col-form-label"
+                           attr.for="{{'typeId' + i}}">Type</label>
+                    <div class="col-md-8">
+                        <select class="form-control"
+                            id="{{'typeId' + i}}"
+                            formControlName="type">
+                            <option value=""
+                                    disabled
+                                    selected
+                                    hidden>Select type</option>
+                            <option value="text">Text</option>
+                            <option value="number">Number</option>
+                            <option value="bool">Yes/No</option>      
+                        </select>
+                    </div>
+                </div> 
+
+                <div class="form-group row mb-2">
+                    <div class="offset-md-2 col-md-4">
+                        <button class="btn btn-outline-secondary"
+                                (click)="addSub()">
+                        Add Sub-Input
+                        </button>
+                        <button class="btn btn-outline-secondary"
+                                type="button"
+                                (click)="delete(i)">                            
+                        Delete
+                        </button>
+                    </div>
+                </div>
             </div>
+            <br>
         </div>
-
-        <div class="form group row mb-2">
-            <label class="col-md-2 col-form-label"
-                   for="typeId">Type</label>
-            <div class="col-md-8">
-                <select class="form-control"
-                       id="typeId"
-                       formControlName="type">
-                    <option value=""
-                            disabled
-                            selected
-                            hidden>Select type</option>
-                    <option value="text">Text</option>
-                    <option value="number">Number</option>
-                    <option value="bool">Yes/No</option>      
-                </select>
-            </div>
-        </div> 
-
-        <div class="form-group row mb-2">
-            <div class="offset-md-2 col-md-4">
-                <button class="btn btn-outline-secondary"
-                        (click)="addSub()">
-                Add Sub-Input
-                </button>
-                <button class="btn btn-outline-secondary"
-                        type="button"
-                        (click)="delete()">
-                    
-                Delete
-                </button>
-            </div>
-        </div>
+        <br>
 
         <div class="form-group row mb-2">
                 <div class="offset-md-2 col-md-4">
                     <button class="btn btn-primary mr-3"
                             style="width:80px"
-                            (click)="add()">
+                            (click)="addForm()">
                     Add Input
                     </button>
                 </div>
