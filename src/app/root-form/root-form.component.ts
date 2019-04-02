@@ -55,7 +55,7 @@ export class RootFormComponent implements OnInit{
 
     delete(i: number): void{
         console.log('delete..');
-        if (confirm("Are you sure you want to delete " + i + "?"))
+        if (confirm("Are you sure you want to delete form " + i + " (question: \"" + this.formContainer.value[i].question + "\")?"))
         {
             this.formContainer.removeAt(i);
         }
