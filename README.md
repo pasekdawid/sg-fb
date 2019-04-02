@@ -4,6 +4,19 @@ A simple Form Builder app created as recruitment task for Skygate company. Made 
 
 
 ### Installation 
+Make sure you have node.js installed to version 5+ and NPM installed to version 3+!
+
+Clone repository
+```
+git clone https://github.com/pasekdawid/sg-fb.git
+```
+
+Change directory to repository
+```
+cd sg-fb
+```
+
+Install with npm
 ```
 npm install
 ```
